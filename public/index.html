@@ -28,5 +28,16 @@
   <!-- javascript resources -->
   <script src="/js/materialize.min.js"></script>
   <script src="/js/nav.js"></script>
+  <!-- Service Worker -->
+  <script>
+      // Registry
+      if("serviceWorker" in navigator){
+          window.addEventListener("load",()=>{
+              navigator.serviceWorker.register("/service-worker.js")
+              .then(console.log("Service Worker successfuly registered!"))
+              .catch(err=>console.log("Failed "+err))
+          })
+      }else{console.log("Browser not supported")}
+  </script>
 </body>
 </html>
