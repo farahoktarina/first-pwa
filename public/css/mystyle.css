@@ -1,0 +1,49 @@
+*{
+  font-family: 'Quicksand', sans-serif;
+}
+p{
+  font-size:1em
+}
+.bar-line{
+    font-size:2em
+}
+.profile{
+    display: -webkit-inline-box;
+    color:#fff
+}
+.profile>p{
+  line-height: 16px;
+  padding-top: 8px;
+  padding-left: 5px;
+}
+@media(max-width:992px){
+  .profile{
+      color:rgba(0,0,0,0.87);
+      margin-left:10px
+  }
+}
+@media(min-width:993px){
+  .profile{
+    margin-left:20px
+  }
+}
+.img-profile{
+    max-width: 100%;
+    height: auto;
+}
+.img-mws{
+    max-width: 80%;
+    height: auto;
+}
+.justify{
+  text-align:justify
+}
+.inline{
+  display: -webkit-inline-box
+}
+.p-r-10{
+  padding-right:10px
+}
+.m-b-30{
+  margin-bottom: 30px
+}

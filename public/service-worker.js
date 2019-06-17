@@ -1,14 +1,22 @@
-const CACHE_NAME = "firstpwa-2"
+const CACHE_NAME = "firstpwa"
 const urlsToCache = [
   "/",
   "/nav.html",
   "/index.html",
   "/pages/home.html",
   "/pages/about.html",
+  "/pages/project.html",
   "/pages/contact.html",
   "/css/materialize.min.css",
+  "/css/mystyle.css",
   "/js/materialize.min.js",
-  "/js/nav.js"
+  "/js/nav.js",
+  "/manifest.json",
+  "/images/icon.png",
+  "/images/logo-lolos.png",
+  "/images/mobilewebspecialist.jpg",
+  "/images/profile.jpg",
+  "/images/temu-logo.png"
 ]
 
 self.addEventListener("install",(event)=>{
