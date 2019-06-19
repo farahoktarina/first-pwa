@@ -20,6 +20,7 @@ const urlsToCache = [
 ]
 
 self.addEventListener("install",(event)=>{
+  // mengabarkan browser agar tidak menonaktifkan service worker Promise yang dikirim ke dalamnya di resolve atau di reject.
     event.waitUntil(
       caches.open(CACHE_NAME).then((cache)=>{
           return cache.addAll(urlsToCache)
@@ -33,12 +34,26 @@ self.addEventListener("fetch",(event)=>{
           cacheName: CACHE_NAME
       }).then((res)=>{
           if(res){
-            console.log("Service Worker using assets from cache : ", res.url)
+            // console.log("Service Worker using assets from cache : ", res.url)
             return res
           }
 
-          console.log("Service Worker using assers from server : ", event.request.url)
-          return fetch(event.request)
+          // console.log("Service Worker using assers from server : ", event.request.url)
+          // jika request tidak tersedia didalam cache, sw mengunduh data yg diminta 
+          const fetchRequest = event.request.clone()
+          return fetch(fetchRequest).then((res)=>{
+            if(!res || res.status !== 200){
+              return res 
+            }
+            
+            // menyalin request berupa object response ke cache
+            const responseToCache = res.clone()
+            caches.open(CACHE_NAME).then((cache)=>{
+                cache.put(event.request, responseToCache)
+            })
+
+            return res 
+          })
       })
     )
 })
