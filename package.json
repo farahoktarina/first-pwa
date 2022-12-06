@@ -4,7 +4,7 @@
   "description": "first pwa of membangung progressive web apps",
   "main": "index.html",
   "devDependencies": {
-    "http-server": "^0.9.0"
+    "http-server": "^14.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
